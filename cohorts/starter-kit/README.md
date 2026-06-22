@@ -4,6 +4,37 @@ Welcome to the **Data Engineering Pilipinas Open Track**. This folder is your pr
 
 ---
 
+## Your Journey at a Glance
+
+```mermaid
+flowchart TD
+    A([🚀 Join the Program]) --> B[Copy the Starter Kit\nto your own public GitHub repo]
+    B --> C[Set up your Python environment\nand clone the repo locally]
+    C --> D[Follow the weekly curriculum\nin the phase folders]
+
+    D --> E{End of phase?\nMilestone due?}
+    E -- No --> D
+    E -- Yes --> F[Push your work\nand copy your commit hash]
+
+    F --> G[Open a Milestone Issue\non the curriculum repo]
+    G --> H{Auto-Check runs\nautomatically}
+
+    H -- ❌ Checks failed --> I[Fix the flagged issues\nand push a new commit]
+    I --> J[Post the new commit hash\nas a comment on the same issue]
+    J --> H
+
+    H -- ✅ All checks passed --> K[Milestone Reviewer\nevaluates your work]
+
+    K -- needs-improvement --> L[Read the reviewer's comment\nfix your work and push]
+    L --> J
+
+    K -- passed --> M{Is this M6?}
+    M -- No --> D
+    M -- Yes --> N([🎉 Deploy your dashboard\nand present your project])
+```
+
+---
+
 ## Before You Start
 
 You need:
@@ -119,6 +150,32 @@ git log -1 --format="%H"
 ```
 
 After you submit, the auto-checker will run and post a comment on your issue within a few minutes. Fix anything flagged before waiting for a reviewer.
+
+**What happens next:**
+
+| Step | Who | What |
+|------|-----|------|
+| Auto-Check | Bot | Clones your repo at the commit hash and checks for required files. Posts ✅/❌ per item. |
+| Fix & Resubmit | You | If any check fails, fix the issue, push a new commit, and post the new commit hash as a comment on the same issue. The auto-check re-runs automatically. |
+| Review | Volunteer | Once all checks pass, a Milestone Reviewer reads your work and applies one of two labels. |
+| `passed` | Reviewer | You're clear to move to the next phase. |
+| `needs-improvement` | Reviewer | The reviewer leaves one specific comment. Fix it, push a new commit, and post the new commit hash as a comment on the same issue. |
+
+> Reviewers aim to respond within **5 days**. If you haven't heard back in 7 days, post in the Discord community channel and tag your moderator.
+
+**How to resubmit after a `needs-improvement` verdict:**
+
+```bash
+# Fix your work, then:
+git add .
+git commit -m "fix: address reviewer feedback"
+git push
+
+# Get your new commit hash:
+git log -1 --format="%H"
+
+# Paste the hash as a comment on your existing milestone issue — do NOT open a new issue.
+```
 
 ---
 
